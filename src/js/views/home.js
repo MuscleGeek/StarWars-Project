@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 export const Home = () => (
 	<div className="text-center mt-5">
 		<Carousel>
-			<Carousel.Item interval={3000}>
+			<Carousel.Item interval={1000}>
 				<Link to="/character">
 					<img
 						className="d-block w-100"
@@ -19,7 +19,7 @@ export const Home = () => (
 					</Carousel.Caption>
 				</Link>
 			</Carousel.Item>
-			<Carousel.Item interval={3000}>
+			<Carousel.Item interval={1000}>
 				<Link to="/planets">
 					<img className="d-block w-100" src="https://wallpapercave.com/wp/wp8179241.jpg" alt="Planets" />
 					<Carousel.Caption>
