@@ -8,6 +8,7 @@ import "../../styles/demo.scss";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
+	actions.loadSomeData(); /*devuelve los datos del api con planetas*/
 	return (
 		<div className="container">
 			<ul className="list-group">
