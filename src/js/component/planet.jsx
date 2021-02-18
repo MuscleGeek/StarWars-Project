@@ -11,22 +11,29 @@ import { propTypes } from "react-bootstrap/esm/Image";
 export const Planet = props => {
 	const { store, actions } = useContext(Context);
 
-	actions.loadPlanets();
-
 	return (
 		<Container fluid>
 			<Row>
-				{Array.from({ length: 10 }).map((_, index) => (
-					<Col md={3} className="mt-1 mb-2" key={index}>
-						<Card>
+				{store.planets.map((planet, i) => (
+					<Col md={3} className="mt-1 mb-2" key={i}>
+						<Card style={{ width: "18rem" }}>
 							<Card.Img variant="top" src={props.pImg} />
 							<Card.Body>
-								<Card.Title>{props.pTitle}</Card.Title>
-								<Card.Text>{props.pDescription}</Card.Text>
+								<Card.Title>{planet.name}</Card.Title>
+								<Card.Text>
+									Diameter: {planet.diameter}
+									<br />
+									Climate: {planet.climate}
+									<br />
+									Gravity: {planet.terrain}
+									<br />
+									Population: {planet.poplation}
+									<br />
+								</Card.Text>
 								<ButtonToolbar
 									className="justify-content-between d-flex"
 									aria-label="Toolbar with Button groups">
-									<Link to={`/planet/${index}`}>
+									<Link to={`/planet/${i}`}>
 										<Button variant="primary">Get info</Button>
 									</Link>
 
@@ -46,7 +53,5 @@ export const Planet = props => {
 };
 
 Planet.propTypes = {
-	pImg: PropTypes.any,
-	pTitle: PropTypes.any,
-	pDescription: PropTypes.any
+	pImg: PropTypes.any
 };

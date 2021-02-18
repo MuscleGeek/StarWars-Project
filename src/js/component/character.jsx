@@ -6,29 +6,38 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext.jsx";
 
 import "../../styles/demo.scss";
+import { propTypes } from "react-bootstrap/esm/Image";
 
-export const Character = () => {
+export const Character = props => {
 	const { store, actions } = useContext(Context);
-	actions.loadCharacters();
 
 	return (
 		<Container fluid>
 			<Row>
-				{Array.from({ length: 10 }).map((_, index) => (
-					<Col md={3} className="mt-1 mb-2">
-						<Card style={{ width: "18rem" }} key={index}>
-							<Card.Img variant="top" src={{ cImg }} />
+				{store.characters.map((character, i) => (
+					<Col md={3} className="mt-1 mb-2" key={i}>
+						<Card style={{ width: "18rem" }}>
+							<Card.Img variant="top" src={props.cImg} />
 							<Card.Body>
-								<Card.Title>{{ cTitle }}</Card.Title>
-								<Card.Text>{{ cDescription }}</Card.Text>
+								<Card.Title>
+									<h1>{character.name}</h1>
+								</Card.Title>
+								<Card.Text>
+									<strong>Hair:</strong> {character.hair_color}
+									<br />
+									<strong>Skin:</strong> {character.skin_color}
+									<br />
+									<strong>Height:</strong> {character.height}
+									<br />
+								</Card.Text>
 								<ButtonToolbar
 									className="justify-content-between d-flex"
 									aria-label="Toolbar with Button groups">
-									<Link to={`/character/${index}`}>
+									<Link to={`/character/${i}`}>
 										<Button variant="primary">Get Info</Button>
 									</Link>
 
-									<Link onClick={() => actions.addFavorite(Character.name, "character")}>
+									<Link onClick={() => actions.addFavorite(character.name, "character")}>
 										<Button variant="outline-warning">
 											<i className="far fa-heart" />
 										</Button>
@@ -44,7 +53,5 @@ export const Character = () => {
 };
 
 Character.propTypes = {
-	cImg: PropTypes.any,
-	cTitle: PropTypes.any,
-	cDescription: PropTypes.any
+	cImg: PropTypes.any
 };
