@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 
 import "../../styles/demo.scss";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
-	actions.loadSomeData(); /*devuelve los datos del api con planetas*/
+	actions.loadSomeData(); /*devuelve los datos del api xxxx*/
 	return (
 		<div className="container">
 			<ul className="list-group">

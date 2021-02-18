@@ -1,3 +1,11 @@
 /* 
     General Styles
 */
+body {
+background: rgb(191,22,31);
+background: -moz-linear-gradient(180deg, rgba(191,22,31,0.718160506390056) 39%, rgba(33,36,37,1) 73%);
+background: -webkit-linear-gradient(180deg, rgba(191,22,31,0.718160506390056) 39%, rgba(33,36,37,1) 73%);
+background: linear-gradient(180deg, rgba(191,22,31,0.718160506390056) 39%, rgba(33,36,37,1) 73%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bf161f",endColorstr="#212425",GradientType=1); 
+
+}

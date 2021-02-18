@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+        import  React from 'react';
+        import Carousel from 'react-bootstrap/Carousel';
+        import React, { useState, useEffect, useContext } from "react";
+        import { Link } from "react-router-dom";
 
-import { Context } from "../store/appContext";
+        import { Context } from "../store/appContext.jsx";
 
-import "../../styles/demo.scss";
-
-export const People = () => {
-
-    const {store, actions} = useContext(Context);
-
-    return  
-        (
-            <Card style={{ width: '18rem' }}>
+        export const infoPlanet = () => (
+         <div>
+                <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
                 <Card.Title>Card Title</Card.Title>
@@ -22,6 +18,6 @@ export const People = () => {
                 <Button variant="primary">Go somewhere</Button>
             </Card.Body>
             </Card>
-        );
+            </div>
 
-}
+        );
