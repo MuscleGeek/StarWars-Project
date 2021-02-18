@@ -12,7 +12,7 @@ export const Planet = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Container fluid>
+		<Container fluid className="overflow-scroll">
 			<Row>
 				{store.planets.map((planet, i) => (
 					<Col md={3} className="mt-1 mb-2" key={i}>
