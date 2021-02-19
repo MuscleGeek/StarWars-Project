@@ -14,17 +14,28 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto">
-				<Dropdown>
-					<Dropdown.Toggle variant="success" id="dropdown-basic">
-						Favoritos
-					</Dropdown.Toggle>
-
-					<Dropdown.Menu>
-						<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-						<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-						<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-					</Dropdown.Menu>
-				</Dropdown>
+				<div className="dropdown">
+					<button
+						className="btn btn-secondary dropdown-toggle"
+						type="button"
+						id="dropdownMenuButton"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false">
+						Favorites
+					</button>
+					<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a className="dropdown-item" href="#">
+							Action
+						</a>
+						<a className="dropdown-item" href="#">
+							Another action
+						</a>
+						<a className="dropdown-item" href="#">
+							Something else here
+						</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 	);

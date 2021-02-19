@@ -9,9 +9,10 @@ import injectContext from "./store/appContext.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
-import { infoCharacter } from "./component/infoCharacter.jsx";
+import { InfoCharacter } from "./views/infoCharacter.jsx";
 import { Planet } from "./component/planet.jsx";
 import { Character } from "./component/character.jsx";
+import { InfoPlanet } from "./views/infoPlanet.jsx";
 
 //create your first component
 const Layout = () => {
@@ -34,20 +35,23 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-						<Route path="/planet/:theid">
+						<Route exact path="/planet/">
 							<Planet
 								pImg="https://cdn-3.expansion.mx/dims4/default/d9eac85/2147483647/strip/true/crop/1128x635+0+0/resize/800x450!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F21%2F6e%2F021cdd2a4155af013db038f72482%2Fstar-wars.jpg"
-								component={Planet}
+								/*component={Planet}*/
 							/>
 						</Route>
-						<Route path="/character/:theid">
+						<Route exact path="/character/">
 							<Character
 								cImg="https://www.denofgeek.com/wp-content/uploads/2017/01/star-wars-droids.jpg?fit=1200%2C680"
-								component={Character}
+								/*component={Character}*/
 							/>
 						</Route>
-						<Route>
-							<h1>Not found!</h1>
+						<Route path="/infoCharacter/:myId">
+							<InfoCharacter />
+						</Route>
+						<Route path="/infoPlanet/:myId">
+							<InfoPlanet />
 						</Route>
 					</Switch>
 					<Footer />

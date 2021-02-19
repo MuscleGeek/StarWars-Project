@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Container, Card, Button, Col, Row, ButtonToolbar } from "react-bootstrap";
 import PropTypes from "prop-types";
 
@@ -12,7 +12,7 @@ export const Planet = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Container fluid className="overflow-scroll">
+		<Container fluid>
 			<Row>
 				{store.planets.map((planet, i) => (
 					<Col md={3} className="mt-1 mb-2" key={i}>
@@ -33,15 +33,15 @@ export const Planet = props => {
 								<ButtonToolbar
 									className="justify-content-between d-flex"
 									aria-label="Toolbar with Button groups">
-									<Link to={`/planet/${i}`}>
+									<Link to={`/infoPlanet/${i}`}>
 										<Button variant="primary">Get info</Button>
 									</Link>
 
-									<Link onClick={() => actions.addFavorite(planet.name, "planet")}>
+									{/* <Link onClick={() => actions.addFavorite(planet.name, "planet")}>
 										<Button variant="outline-warning">
 											<i className="far fa-heart" />
 										</Button>
-									</Link>
+									</Link> */}
 								</ButtonToolbar>
 							</Card.Body>
 						</Card>

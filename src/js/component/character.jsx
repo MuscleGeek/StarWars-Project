@@ -33,15 +33,14 @@ export const Character = props => {
 								<ButtonToolbar
 									className="justify-content-between d-flex"
 									aria-label="Toolbar with Button groups">
-									<Link to={`/character/${i}`}>
+									<Link to={`/infoCharacter/${i}`}>
 										<Button variant="primary">Get Info</Button>
 									</Link>
-
-									<Link onClick={() => actions.addFavorite(character.name, "character")}>
-										<Button variant="outline-warning">
-											<i className="far fa-heart" />
-										</Button>
-									</Link>
+									<Button
+										variant="outline-warning"
+										onClick={() => actions.addFavorite(character.name, "character")}>
+										<i className="far fa-heart" />
+									</Button>
 								</ButtonToolbar>
 							</Card.Body>
 						</Card>
