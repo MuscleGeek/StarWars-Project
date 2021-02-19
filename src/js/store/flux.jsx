@@ -6,11 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			/*exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},*/
 			loadCharacters: () => {
+				//obtiener personajes obteniendo el result
 				fetch("https://swapi.dev/api/people/")
 					.then(res => res.json())
 					.then(data => {
@@ -20,24 +17,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err));
 			},
 			loadPlanets: () => {
+				//obtiene todos los planetas por medio del result
 				fetch("https://swapi.dev/api/planets/")
 					.then(res => res.json())
 					.then(data => {
-						console.log("Fetching Planets data: ", data);
+						console.table("Fetching Planets data: ", data);
 						setStore({ planets: data.results });
 					})
 					.catch(err => console.error(err));
 			},
 			loadPlanetsbyID: id => {
+				//obtener el planeta por ID @view
 				fetch("https://swapi.dev/api/planets/" + id)
 					.then(res => res.json())
 					.then(data => {
-						console.log("Fetching Planets data: ", data);
+						console.table("Fetching Planets data: ", data);
 						setStore({ planets: data });
 					})
 					.catch(err => console.error(err));
 			},
 			loadCharactersbyID: id => {
+				//obtener el personaje por ID @view
 				fetch("https://swapi.dev/api/people/" + id)
 					.then(res => res.json())
 					.then(data => {
@@ -46,23 +46,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err));
 			},
-			addFavorites: () => {}
+			addFavorites: value => {
+				//agregar favoritos al dropdown
+
+				const store = getStore();
+
+				setStore({
+					favorites: [...store.favorites, [value]]
+				});
+			},
+
+			countFavorites: () => {
+				const store = getStore();
+				const length = store.favorites.length;
+				return length;
+			},
+
+			deleteFavorites: id => {
+				const store = getStore();
+
+				const listFavorites = store.favorites.filter((item, f) => id !== f);
+
+				setStore({
+					favorites: [...listFavorites]
+				});
+			}
 		}
 	};
 };
 
 export default getState;
-/*changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}*/

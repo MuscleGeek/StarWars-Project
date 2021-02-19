@@ -9,12 +9,15 @@ import "../../styles/demo.scss";
 import { propTypes } from "react-bootstrap/esm/Image";
 
 export const Character = props => {
-	const { store, actions } = useContext(Context);
+	const { store, actions } = useContext(Context); //obtenermos acceso a nuestras collecciones y funciones por medio del appContext por medio de su estado*/
 
 	return (
 		<Container fluid>
 			<Row>
-				{store.characters.map((character, i) => (
+				{store.characters.map((
+					character,
+					i /*recorremos el los personajes y cada personaje queda dentro de una carta*/
+				) => (
 					<Col md={3} className="mt-1 mb-2" key={i}>
 						<Card style={{ width: "18rem" }}>
 							<Card.Img variant="top" src={props.cImg} />
@@ -38,9 +41,10 @@ export const Character = props => {
 									</Link>
 									<Button
 										variant="outline-warning"
-										onClick={() => actions.addFavorite(character.name, "character")}>
+										onClick={() => actions.addFavorites(character.name, "character")}>
 										<i className="far fa-heart" />
 									</Button>
+									{/* nos redirige a la colleccion de personajes */}
 								</ButtonToolbar>
 							</Card.Body>
 						</Card>

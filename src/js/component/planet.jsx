@@ -36,12 +36,11 @@ export const Planet = props => {
 									<Link to={`/infoPlanet/${i}`}>
 										<Button variant="primary">Get info</Button>
 									</Link>
-
-									{/* <Link onClick={() => actions.addFavorite(planet.name, "planet")}>
-										<Button variant="outline-warning">
-											<i className="far fa-heart" />
-										</Button>
-									</Link> */}
+									<Button
+										variant="outline-warning"
+										onClick={() => actions.addFavorites(planet.name, "planet")}>
+										<i className="far fa-heart" />
+									</Button>
 								</ButtonToolbar>
 							</Card.Body>
 						</Card>
